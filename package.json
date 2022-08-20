@@ -1,0 +1,22 @@
+{
+  "name": "houdini-hud-website",
+  "version": "1.0.0",
+  "description": "\"interactive documentation for houdini-hud\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propjockey/houdini-hud-website.git"
+  },
+  "author": "JaneOri",
+  "bugs": {
+    "url": "https://github.com/propjockey/houdini-hud-website/issues"
+  },
+  "homepage": "https://github.com/propjockey/houdini-hud-website#readme",
+  "dependencies": {
+    "corset": "^2.0.2",
+    "houdini-hud": "file:../houdini-hud"
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>augmented-ui - Integrate your apps with technology</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a88d00">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:image" content="http://augmented-ui.com/socialmedia.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:image" content="http://augmented-ui.com/socialmedia_1.9to1.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="632">
+  <script type="module" src="./node_modules/houdini-hud/index.js"></script>
+  <script type="module" src="./site.js"></script>
+  <link rel="stylesheet" type="text/css" href="./site.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146833088-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-146833088-1');
+  </script>
+</head>
+<body>
+  <main class="all-properties">
+    <header>
+      <div>
+        <h1 class="text1">houdini-hud</h1>
+        <p class="text5"><a href="http://augmented-ui.com/">augmented-ui</a> implemented with Houdini</p>
+      </div>
+      <div class="consulting text3">Bitovi Consulting</div>
+      <div class="org text4">
+        <a href="https://github.com/propjockey">PropJockey</a>
+      </div>
+    </header>
+    <section class="articles"></section>
+    <section class="demo-area">
+      <div class="demo" data-houdini-hud="both"></div>
+      <select class="properties-dropdown"></select>
+    </section>
+  </main>
+
+  <template id="properties-groups"><optgroup label=""></optgroup></template>
+  <template id="properties-item"><option value=""></option></template>
+
+  <template id="group-section" data-note="looped within main > .articles">
+    <section class="group-item">
+      <header data-houdini-hud="border">
+        <h2 class="text2"></h2>
+        <p class="text0"></p>
+      </header>
+      <ul data-houdini-hud="border"></ul>
+    </section>
+  </template>
+  <template id="property-li-article" data-note="looped within .group-item > ul">
+    <li class="property-item">
+      <article>
+        <h3 class="text1"></h3>
+        <p class="text4"></p>
+      </article>
+      <a class="article-anchor" id="" href="#"></a>
+    </li>
+  </template>
+</body>
+</html>

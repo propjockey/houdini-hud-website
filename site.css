@@ -1,0 +1,376 @@
+/* can't use houdini on the body tag https://bugs.chromium.org/p/chromium/issues/detail?id=1285639 */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+html {
+  --bg: repeating-linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.03) 0px 2px,
+    transparent 2px 4px
+  ) fixed, #200933;
+  background: repeating-linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.03) 0px 2px,
+    transparent 2px 4px
+  ) fixed, #200933;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+html::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 75%, #3d0b43);
+  z-index: 199;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+html::after {
+  content: "";
+  height: 50%;
+  width: 100%;
+  display: block;
+  background-image: linear-gradient(
+    90deg, rgba(252,25,154,.1) 1px, rgba(0,0,0,0) 1px
+  ), linear-gradient(
+    0deg, rgba(252,25,154,.1) 1px, rgba(0,0,0,0) 1px
+  );
+  background-position: bottom;
+  background-repeat: repeat;
+  background-size: 20px 20px;
+  left: -25px;
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  transform: perspective(100px) rotateX(60deg);
+  z-index: 200;
+}
+
+body {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  position: absolute;
+  inset: 0;
+}
+
+.text0 {
+  color: #b5b4b6;
+  text-shadow: none;
+}
+
+code {
+  font-family: monospace;
+}
+
+code,
+.text1 {
+  color: #ffcc00;
+  text-shadow: 0 0 2px #100c0f, 0 0 3px #ffaa0099, 0 0 5px #ffaa0099, 0 0 10px #ffaa0099;
+}
+
+.text2 {
+  color: #61e2ff;
+  text-shadow: 0 0 2px #001716, 0 0 5px #03edf933, 0 0 10px #ffff6633;
+}
+
+.property-item b,
+.text3 {
+  color: #fc199a;
+  text-shadow: 0 0 2px #393a33, 0 0 35px #ffffff44, 0 0 10px #fc199a, 0 0 2px #fc199a;
+  font-weight: normal;
+}
+
+.text4 {
+  color: #9963ff;
+  text-shadow: none;
+}
+
+.text5 {
+  color: #9963ff99;
+  text-shadow: 0 0 2px #001716, 0 0 5px #03edf933, 0 0 10px #ffff6633;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr max(360px, 40%);
+  width: min(100% - 1rem, 1300px);
+  margin: 0 auto;
+  gap: 1rem;
+}
+main > header {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 55px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 200;
+  box-shadow: 0 1rem 0 var(--bg);
+}
+
+main > header::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  height: 1rem;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+}
+
+main > header .consulting {
+  text-align: center;
+}
+main > header .org {
+  text-align: right;
+}
+
+.all-properties .group-item > ul {
+  list-style: none;
+}
+.all-properties .property-item {
+  position: relative;
+}
+.article-anchor {
+  color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  scroll-margin-top: 150px;
+  text-align: right;
+  text-decoration: none;
+  padding: 1rem;
+}
+.property-item .article-anchor:is(:hover, :active, :focus),
+.property-item:hover .article-anchor {
+  /* text2 */
+  color: #61e2ff;
+  text-shadow: 0 0 2px #001716, 0 0 5px #03edf933, 0 0 10px #ffff6633;
+}
+
+.articles {
+  margin-bottom: 60vh;
+}
+
+.demo-area {
+  position: sticky;
+  top: calc(55px + 1rem);
+  height: calc(100vh - 55px - 1rem);
+}
+.group-item > header {
+  position: sticky;
+  top: calc(55px + 1rem);
+  z-index: 100;
+}
+
+.demo-area .demo {
+  --hud-inlay-bg: black;
+  --hud-inlay-opacity: 0.5;
+  --hud-bl-inset: 0.75rem;
+  --hud-tr1: clip;
+  --hud-tr1-size: 1rem;
+  --hud-l2: clip;
+  --hud-l1: clip;
+  --hud-bl2: round;
+  --hud-bl1: clip;
+  --hud-l2-size: 1rem;
+  --hud-l2-inset-y: 25%;
+  --hud-l1-size: 0.25rem;
+  --hud-bl2-size: 1rem;
+  --hud-bl1-size: 0.5rem;
+  --hud-b1: clip;
+  --hud-b1-size: 1rem;
+  --hud-b1-inset-x: 33%;
+  --hud-b2: clip;
+  --hud-b2-size: 0.25rem;
+  --hud-br1: round;
+  --hud-br1-size: 1rem;
+  width: 100%;
+  height: max(50%, 150px);
+  --hud-inlay-all: 7px;
+  --hud-border-all: 2px;
+  --hud-border-opacity: 0.75;
+  --hud-border-bg: linear-gradient(
+    to right,
+    #ffcc00,
+    #61e2ff 33% 66%,
+    #ffcc00
+  );
+}
+
+.group-item {
+  margin-bottom: 2rem;
+}
+.group-item > header > :last-child {
+  box-shadow: 0 0.75rem 0.25rem var(--bg);
+}
+.group-item > header > * {
+  pointer-events: all;
+}
+.group-item > header {
+  pointer-events: none;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  --mask: linear-gradient(
+    to top,
+    transparent 1rem,
+    black 2rem
+  );
+  -webkit-mask-image: var(--mask);
+  mask-image: var(--mask);
+  background: var(--bg);
+  --hud-border-all: 1px;
+  --hud-tl1: clip;
+  --hud-tr1: step;
+  --hud-tl1-size: 0.75rem;
+  --hud-tr1-size: 0.75rem;
+  --hud-t1: clip;
+  --hud-t2: clip;
+  --hud-t1-size: 0.25rem;
+  --hud-t2-size: 0.25rem;
+  --hud-t1-inset-x: 10%;
+  --hud-border-opacity: 1;
+  --c: #ffcc00;
+  --hud-border-bg: radial-gradient(
+    circle at top left,
+    var(--c) 1rem,
+    transparent 1.5rem
+  ), radial-gradient(
+    circle at top right,
+    var(--c) 1rem,
+    transparent 1.5rem
+  ), linear-gradient(
+    to right,
+    transparent 33%,
+    var(--c),
+    transparent 66%
+  ) left top / 100% 50% no-repeat;
+}
+.group-item > ul {
+  filter: brightness(1.2);
+  padding: 2rem;
+  padding-top: 0;
+  margin-top: -1rem;
+  --hud-border-all: 1px;
+  --hud-br1: clip;
+  --hud-bl1: step;
+  --hud-br1-size: 0.75rem;
+  --hud-bl1-size: 0.75rem;
+  --hud-b1: scoop;
+  --hud-b2: scoop;
+  --hud-b1-size: 0.75rem;
+  --hud-b2-size: 0.75rem;
+  --hud-b1-inset-x: 25%;
+  --hud-border-opacity: 1;
+  --c: #ffcc00;
+  --hud-border-bg: radial-gradient(
+    circle at bottom left,
+    var(--c) 1rem,
+    transparent 1.5rem
+  ), radial-gradient(
+    circle at bottom right,
+    var(--c) 1rem,
+    transparent 1.5rem
+  ), linear-gradient(
+    to right,
+    transparent 25%,
+    var(--c),
+    transparent 75%
+  ) left bottom / 100% 50% no-repeat;
+}
+
+.group-item > ul > li:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+h3 {
+  margin-bottom: 0.25rem;
+  font-family: monospace;
+  font-size: 1.25rem;
+}
+
+.property-item.selected {
+  outline: 1px solid rebeccapurple;
+  outline-offset: 0.25rem;
+}
+
+.property-item .details {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.property-item a,
+.details code {
+  white-space: nowrap;
+}
+
+.what {
+  width: 1331px;
+  height: 450px;
+  position: relative;
+  left: 5vw;
+  top: 5vh;
+  --hud-size: 80% 2px;
+  --hud-tl1: scoop;
+  --hud-tl2: scoop;
+  --hud-tl-inset: 50px;
+  --hud-tl2-inset: 20px;
+  --hud-tl1-height: 100px;
+  --hud-tl1-width: 100px;
+  --hud-tl2-size: 50px;
+  /*
+  --hud-tr1: scoop;
+  --hud-tr2: round;
+  --hud-tr-inset: 10px;
+  --hud-tr2-inset: 20px;
+  --hud-tr1-height: 100px;
+  --hud-tr1-width: 100px;
+  --hud-tr2-size: 50px;
+  --hud-r1: round;
+  --hud-r2: round;
+  --hud-r1-size: 20px;
+  --hud-r2-size: 10px;
+  --hud-r1-inset-y: 10px;
+  --hud-r2-inset-y: 0px;
+  */
+  --hud-br1: scoop;
+  --hud-br2: scoop;
+  --hud-br-inset: 50px;
+  --hud-br2-inset: 20px;
+  --hud-br1-height: 100px;
+  --hud-br1-width: 100px;
+  --hud-br2-size: 50px;
+  --hud-b1: round;
+  --hud-b2: round;
+  --hud-b1-size: 20px;
+  --hud-b2-size: 10px;
+  --hud-b1-inset-y: 10px;
+  --hud-b2-inset-x: 0.1px;
+  --hud-l1: round;
+  --hud-l2: round;
+  --hud-l-inset: 50px;
+  --hud-l2-inset: 20px;
+  --hud-l1-height: 100px;
+  --hud-l1-width: 100px;
+  --hud-l2-size: 50px;
+  color: hotpink;
+  --hud-border-all: 2px;
+  --hud-inlay-all: 5px;
+  --hud-inlay-bg: linear-gradient(to bottom left, rebeccapurple, hotpink, rebeccapurple);
+  --hud-border-bg: linear-gradient(to bottom left, hotpink, rebeccapurple);
+}
