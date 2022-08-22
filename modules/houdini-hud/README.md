@@ -7,6 +7,12 @@
 
 Projects already using augmented-ui can also use houdini-hud if needed/wanted.
 
+[GitHub](https://github.com/propjockey/houdini-hud)
+
+[NPM](https://www.npmjs.com/package/houdini-hud)
+
+[Interactive Documentation (WIP)](https://houdini-hud.com)
+
 ## Documentation
 
 `npm install houdini-hud`
@@ -23,7 +29,7 @@ then add it to any element (except on or inside `a` tags)
 
 and take a look at the ~150 CSS properties avaialbe to shape it however you want:
 
-[Interactive Documentation (WIP)](http://houdini-hud.com)
+[Interactive Documentation (WIP)](https://houdini-hud.com)
 
 `div { --hud-tl1: clip; --hud-tl1-size: 1rem; }`
 
@@ -87,3 +93,4 @@ new features:
 lost features:
 
 * Houdini doesn't work on `a` tags or anything inside of an `a` tag
+* CSS.paintWorklet does not work on http (local or https only)
