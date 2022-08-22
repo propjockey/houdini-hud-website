@@ -19,7 +19,7 @@
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="632">
-  <script type="module" src="./node_modules/houdini-hud/index.js"></script>
+  <script type="module" src="./modules/houdini-hud/index.js"></script>
   <script type="module" src="./site.js"></script>
   <link rel="stylesheet" type="text/css" href="./site.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146833088-1"></script>
@@ -30,6 +30,25 @@
 
     gtag('config', 'UA-146833088-1');
   </script>
+
+  <script>
+    (() => {
+      const debounce = (fn, ms, that, to) => function () {
+        clearTimeout(to)
+        to = setTimeout(() => fn.apply(that || this, arguments), ms)
+      }
+
+      const updateElmins = debounce(() => {
+        document.querySelectorAll(".subscribe-elmin").forEach(el => {
+          el.style.setProperty("--elmin", Math.min(el.offsetHeight, el.offsetWidth) / 100 + "px")
+        })
+      }, 100)
+
+      updateElmins()
+
+      window.addEventListener("resize", updateElmins)
+    })()
+  </script>
 </head>
 <body>
   <main class="all-properties">
@@ -38,20 +57,61 @@
         <h1 class="text1">houdini-hud</h1>
         <p class="text5"><a href="http://augmented-ui.com/">augmented-ui</a> implemented with Houdini</p>
       </div>
-      <div class="consulting text3">Bitovi Consulting</div>
+      <div class="consulting">
+        <button class="text3" id="consulting-popover" aria-expanded="false">Consulting</button>
+        <div class="card" aria-labelledby="consulting-popover" role="region">
+          <span aria-hidden="true" class="dots"></span>
+          <div aria-hidden="true" class="augmented" data-houdini-hud>&nbsp;</div>
+          <span class="text">
+            <h2>augmented-ui</h2>
+            <span>consulting available in collaboration with</span>
+            <i>bitovi</i>
+          </span>
+          <ul>
+            <li>Speaking</li>
+            <li>Training</li>
+            <li>Design</li>
+            <li>Engineering</li>
+          </ul>
+          <a href="https://twitter.com/Jane0ri" title="Contact me on Twitter to begin!"></a>
+        </div>
+        <div class="dismiss-consulting-popover"></div>
+      </div>
       <div class="org text4">
-        <a href="https://github.com/propjockey">PropJockey</a>
+        <a href="https://github.com/propjockey">
+          <img aria-hidden="true" src="./propjockey.png" alt="PropJockey Logo">
+          PropJockey
+        </a>
       </div>
     </header>
     <section class="articles"></section>
-    <section class="demo-area">
-      <div class="demo" data-houdini-hud="both"></div>
-      <select class="properties-dropdown"></select>
+    <section class="demo-area" data-note="other classes here get applied like corner-region, pnum-2, position-br1, etc">
+      <div class="demo subscribe-elmin" data-houdini-hud="both">
+        <div class="aug-demo" data-houdini-hud="border mask"></div>
+      </div>
+      <div class="demo-form">
+        <span class="context-code text5 aug-demo show-if-pnum-2 corset-pos2as1"></span>
+        <span class="context-code text5 aug-demo show-if-pnum-2">scoop</span>
+        <select class="properties-dropdown text1"></select>
+        <select class="aug-demo text4">
+          <option value="clip">clip</option>
+          <option value="scoop">scoop</option>
+          <option value="round">round</option>
+          <option value="rect">rect</option>
+          <option value="step">step</option>
+          <option value="none">none</option>
+        </select>
+        <span class="context-code text5 aug-demo show-if-pnum-1 corset-pos1as2"></span>
+        <span class="context-code text5 aug-demo show-if-pnum-1">
+          <span class="show-if-corner-region">none</span>
+          <span class="show-if-edge-region">clip</span>
+        </span>
+      </div>
     </section>
   </main>
 
-  <template id="properties-groups"><optgroup label=""></optgroup></template>
-  <template id="properties-item"><option value=""></option></template>
+  <template id="properties-groups"><optgroup class="text2" label=""></optgroup></template>
+  <template id="properties-item"><option class="text1" value=""></option></template>
 
   <template id="group-section" data-note="looped within main > .articles">
     <section class="group-item">

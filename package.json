@@ -4,6 +4,7 @@
   "description": "\"interactive documentation for houdini-hud\"",
   "main": "index.js",
   "scripts": {
+    "build": "rm -rf ./modules && cp -Lr ./node_modules ./modules && rm -rf ./modules/houdini-hud/.git",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

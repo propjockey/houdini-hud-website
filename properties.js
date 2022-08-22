@@ -120,7 +120,7 @@ export default [
   },
   {
     "group": "Resizing Equipped Augs",
-    "description": "Each of the 16 positions have a corresponding size property that sets the width and height of the rendered aug.",
+    "description": "Each of the 16 positions have a corresponding size property that sets the width and height of the rendered aug. Sizes do not apply if the corresponding aug is set to 'none'.",
     "properties": [
       {
         "name": "--hud-tl1-size",
@@ -626,7 +626,7 @@ export default [
   },
   {
     "group": "Position Inset Distances",
-    "description": "Each of the 16 positions can have an inset too. This specifies a distance for an additional line segment from the start and/or end of each position (before and after each aug itself).",
+    "description": "Each of the 16 positions can have an inset too. This specifies a length for an additional line segment from the start and/or end of each position (before and after each aug itself). Position insets do not apply if the corresponding aug is set to 'none'.",
     "properties": [
       {
         "name": "--hud-tl1-inset",
@@ -640,14 +640,14 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "-90000px",
-        "description": true
+        "description": "Add a horizontal line segment between the left edge of the @region-name (@region) region and the aug equipped to the @first-second position (@position)."
       },
       {
         "name": "--hud-tl1-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "-90000px",
-        "description": true
+        "description": "Add a vertical line segment after the aug equipped to the @first-second position (@position). This segment insets the @first-second aug a distance from the aug in position @region2, or from the top edge of the @region-name (@region) region if there is nothing in position @region2."
       },
       {
         "name": "--hud-tl2-inset",
@@ -661,10 +661,52 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "-90000px",
-        "description": true
+        "description": "Add a horizontal line segment between the end of the first position (@region1) and the aug equipped to the @first-second position (@position)."
       },
       {
         "name": "--hud-tl2-inset-y",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": "Add a vertical line segment after the aug equipped to the @first-second position (@position), insetting it at the specified distance from the top edge of the @region-name (@region) region."
+      },
+      {
+        "name": "--hud-t1-inset",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "0px",
+        "description": true
+      },
+      {
+        "name": "--hud-t1-inset-x",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-t1-inset-y",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-t2-inset",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "0px",
+        "description": true
+      },
+      {
+        "name": "--hud-t2-inset-x",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-t2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "-90000px",
@@ -713,132 +755,6 @@ export default [
         "description": true
       },
       {
-        "name": "--hud-br1-inset",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "0px",
-        "description": true
-      },
-      {
-        "name": "--hud-br1-inset-x",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-br1-inset-y",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-br2-inset",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "0px",
-        "description": true
-      },
-      {
-        "name": "--hud-br2-inset-x",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-br2-inset-y",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-bl1-inset",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "0px",
-        "description": true
-      },
-      {
-        "name": "--hud-bl1-inset-x",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-bl1-inset-y",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-bl2-inset",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "0px",
-        "description": true
-      },
-      {
-        "name": "--hud-bl2-inset-x",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-bl2-inset-y",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-t1-inset",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "0px",
-        "description": true
-      },
-      {
-        "name": "--hud-t1-inset-x",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-t1-inset-y",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-t2-inset",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "0px",
-        "description": true
-      },
-      {
-        "name": "--hud-t2-inset-x",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
-        "name": "--hud-t2-inset-y",
-        "syntaxLink": syntaxLinks.lp,
-        "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
-      },
-      {
         "name": "--hud-r1-inset",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
@@ -881,6 +797,48 @@ export default [
         "description": true
       },
       {
+        "name": "--hud-br1-inset",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "0px",
+        "description": true
+      },
+      {
+        "name": "--hud-br1-inset-x",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-br1-inset-y",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-br2-inset",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "0px",
+        "description": true
+      },
+      {
+        "name": "--hud-br2-inset-x",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-br2-inset-y",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
         "name": "--hud-b1-inset",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
@@ -917,6 +875,48 @@ export default [
       },
       {
         "name": "--hud-b2-inset-y",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-bl1-inset",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "0px",
+        "description": true
+      },
+      {
+        "name": "--hud-bl1-inset-x",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-bl1-inset-y",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-bl2-inset",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "0px",
+        "description": true
+      },
+      {
+        "name": "--hud-bl2-inset-x",
+        "syntaxLink": syntaxLinks.lp,
+        "syntax": "<length-percentage>",
+        "initialValue": "-90000px",
+        "description": true
+      },
+      {
+        "name": "--hud-bl2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "-90000px",

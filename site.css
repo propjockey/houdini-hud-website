@@ -98,7 +98,7 @@ code,
 }
 
 .text5 {
-  color: #9963ff99;
+  color: #9169F7cc;
   text-shadow: 0 0 2px #001716, 0 0 5px #03edf933, 0 0 10px #ffff6633;
 }
 
@@ -133,9 +133,206 @@ main > header::after {
 
 main > header .consulting {
   text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 main > header .org {
   text-align: right;
+  font-size: 1.25rem;
+}
+header .consulting a,
+header .org a {
+  text-decoration: none;
+}
+header .org img {
+  position: relative;
+  width: 2.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header .consulting > button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+header .consulting .dismiss-consulting-popover {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+header .consulting .dismiss-consulting-popover,
+header .consulting .card {
+  display: none;
+}
+header .consulting > [aria-expanded="true"] ~ .dismiss-consulting-popover,
+header .consulting > [aria-expanded="true"] + .card {
+  display: block;
+}
+header .card {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 25%) scale(1.5);
+  z-index: 200;
+  width: 3.25in;
+  height: 2in;
+  margin: auto;
+  filter: drop-shadow(0 0 0.25in rgb(250 0 0 / 0.43))
+          drop-shadow(0 0 0.5in rgb(0 0 0 / 0.93))
+          drop-shadow(0 0 0.5in rgb(0 0 0 / 0.93));
+  color: black;
+  background: linear-gradient(
+    -135deg,
+    transparent 0.05in,
+    #cb3036 0.05in 0.1in,
+    transparent 0.1in 0.15in,
+    #cb3036 0.15in 0.2in,
+    transparent 0.2in 0.25in,
+    #cb3036 0.25in 0.3in,
+    transparent 0.3in
+  );
+  text-shadow: none;
+  font-size: initial;
+}
+
+header .card a {
+  position: absolute;
+  inset: 0;
+}
+
+header .card .dots::before,
+header .card .dots::after {
+  content: "";
+  position: absolute;
+  height: 60%;
+  aspect-ratio: 1 / 1;
+  border: 0.025in solid #cb3036;
+  border-radius: 50%;
+}
+header .card .dots::before {
+  left: 0.072in;
+}
+header .card .dots::after {
+  right: 0.072in;
+  background: #cb3036;
+}
+
+header .card .dots {
+  position: absolute;
+  top: 0.02in;
+  right: 0.5in;
+  height: 0.175in;
+  width: 0.5in;
+}
+
+header .card .augmented::before,
+header .card .augmented::after {
+  inset: -0.0125in;
+  top: 0;
+}
+header .card .augmented {
+  border: 0.0125in dashed #cb3036;
+  border-top: none;
+  border-bottom-right-radius: 0.2in;
+  position: absolute;
+  inset: 0;
+  --hud-tr1: clip;
+  --hud-tr2: clip;
+  --hud-b1: clip;
+  --hud-b2: clip;
+  --hud-border: initial;
+  --hud-border-all: 0.05in;
+  --hud-border-bg: linear-gradient(
+    -135deg,
+    #cb3036 30%,
+    transparent 30%
+  ), linear-gradient(
+    45deg,
+    #cb3036 5% 29%,
+    transparent 29%
+  ), radial-gradient(
+    circle at top left,
+    #cb3036 0.75in,
+    transparent 0.75in
+  ), linear-gradient(
+    to bottom,
+    transparent 0.0775in,
+    #cb3036 0.0775in 0.2in,
+    transparent 0.2in
+  );
+  --hud-inlay: initial;
+  --hud-inlay-all: 0.025in;
+  --hud-inlay-bg: white;
+
+  --hud-tr1-size: 0.2in;
+  --hud-tr2-size: 0.15in;
+  --hud-tr1-inset-x: 30%;
+
+  --hud-b-size: 0.125in;
+  --hud-b1-inset-x: 15%;
+  --hud-b-center: 30%;
+
+  --hud-bl1: clip;
+  --hud-bl1-size: 0.125in;
+  --hud-br1: round;
+  --hud-br1-size: 0.2in;
+
+  --hud-tl1: clip;
+  --hud-tl1-size: 0.25in;
+
+  --hud-t1: rect;
+  --hud-t-center: 0.75in;
+  --hud-t1-size: 0.075in;
+}
+
+header .card .text {
+  text-align: center;
+  font-family: sans-serif;
+  position: absolute;
+  left: 35%;
+  top: 40%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+header .card .text span {
+  font-size: 0.1in;
+  opacity: 0.5;
+}
+
+header .card h2 { font-size: 0.24in; }
+
+header .card .text i {
+  font-size: 0px;
+  margin-top: 0.025in;
+  display: block;
+  width: 100%;
+  height: 0.4in;
+  background: url(./consulting.png) center center / auto 100% no-repeat;
+}
+
+header .card ul {
+  text-align: center;
+  list-style: none;
+  position: absolute;
+  bottom: 0.25in;
+  right: 0.15in;
+  font-family: sans-serif;
+  display: flex;
+  gap: 0.05in;
+}
+header .card li {
+  display: inline-block;
+  font-size: 0.1in;
+}
+header .card li:nth-child(even) {
+  transform: translateY(95%);
 }
 
 .all-properties .group-item > ul {
@@ -317,6 +514,199 @@ h3 {
 .property-item a,
 .details code {
   white-space: nowrap;
+}
+
+.demo-area .show-if-pnum-2,
+.demo-area .show-if-pnum-1,
+.demo-area .aug-demo,
+.demo-area .show-if-corner-region,
+.demo-area .show-if-edge-region {
+  display: none;
+}
+
+.demo-area.pnum-2.aug-demo .show-if-pnum-2.aug-demo,
+.demo-area.pnum-1.aug-demo .show-if-pnum-1.aug-demo,
+.demo-area.aug-demo .aug-demo:not(.show-if-pnum-1, .show-if-pnum-2),
+.demo-area.corner-region .show-if-corner-region,
+.demo-area.edge-region .show-if-edge-region {
+  display: block;
+}
+
+.demo {
+  --elmin: 1.5px; /* set by JS */
+  display: grid;
+  align-items: center;
+}
+
+.demo > * {
+  margin: auto;
+  position: relative;
+  top: -0.5rem;
+  width: calc(var(--elmin) * 70); /* 70% of parent element's min(offsetWidth, offsetHeight) */
+  aspect-ratio: 1 / 1;
+  background: #9963ff;
+  --hud-border-all: 2px;
+}
+
+.demo-area.aug-demo .demo-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.context-code,
+.demo-form select {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.context-code {
+  padding: 4px;
+  cursor: auto;
+}
+
+.properties-dropdown optgroup,
+select.aug-demo option {
+  background: #14091D;
+  font-family: sans-serif;
+  margin-bottom: 0.5rem;
+}
+.properties-dropdown option {
+  font-family: monospace;
+}
+
+.demo .aug-demo {
+  --hud-tl1: scoop;
+  --hud-tl1-size: 8px;
+  --hud-tl2: scoop;
+  --hud-tl2-size: 8px;
+  --hud-t1: scoop;
+  --hud-t1-size: 8px;
+  --hud-t2: scoop;
+  --hud-t2-size: 8px;
+  --hud-tr1: scoop;
+  --hud-tr1-size: 8px;
+  --hud-tr2: scoop;
+  --hud-tr2-size: 8px;
+  --hud-r1: scoop;
+  --hud-r1-size: 8px;
+  --hud-r2: scoop;
+  --hud-r2-size: 8px;
+  --hud-br1: scoop;
+  --hud-br1-size: 8px;
+  --hud-br2: scoop;
+  --hud-br2-size: 8px;
+  --hud-b1: scoop;
+  --hud-b1-size: 8px;
+  --hud-b2: scoop;
+  --hud-b2-size: 8px;
+  --hud-bl1: scoop;
+  --hud-bl1-size: 8px;
+  --hud-bl2: scoop;
+  --hud-bl2-size: 8px;
+  --hud-l1: scoop;
+  --hud-l1-size: 8px;
+  --hud-l2: scoop;
+  --hud-l2-size: 8px;
+}
+
+.demo-area.region-tl .aug-demo {
+  --hud-tl1: scoop;
+  --hud-tl1-size: 16px;
+  --hud-tl2: scoop;
+  --hud-tl2-size: 16px;
+  --hud-border-bg: radial-gradient(
+    circle at top left,
+    #ffcc00 0px 32px,
+    transparent 30%
+  )
+}
+
+.demo-area.region-t .aug-demo {
+  --hud-t1: scoop;
+  --hud-t1-size: 16px;
+  --hud-t2: scoop;
+  --hud-t2-size: 16px;
+  --hud-border-bg: radial-gradient(
+    circle at top center,
+    #ffcc00 0px 32px,
+    transparent 30%
+  )
+}
+
+.demo-area.region-tr .aug-demo {
+  --hud-tr1: scoop;
+  --hud-tr1-size: 16px;
+  --hud-tr2: scoop;
+  --hud-tr2-size: 16px;
+  --hud-border-bg: radial-gradient(
+    circle at top right,
+    #ffcc00 0px 32px,
+    transparent 30%
+  )
+}
+
+.demo-area.region-r .aug-demo {
+  --hud-r1: scoop;
+  --hud-r1-size: 16px;
+  --hud-r2: scoop;
+  --hud-r2-size: 16px;
+  --hud-border-bg: radial-gradient(
+    circle at right center,
+    #ffcc00 0px 32px,
+    transparent 30%
+  )
+}
+
+.demo-area.region-br .aug-demo {
+  --hud-br1: scoop;
+  --hud-br1-size: 16px;
+  --hud-br2: scoop;
+  --hud-br2-size: 16px;
+  --hud-border-bg: radial-gradient(
+    circle at right bottom,
+    #ffcc00 0px 32px,
+    transparent 30%
+  )
+}
+
+.demo-area.region-b .aug-demo {
+  --hud-b1: scoop;
+  --hud-b1-size: 16px;
+  --hud-b2: scoop;
+  --hud-b2-size: 16px;
+  --hud-border-bg: radial-gradient(
+    circle at center bottom,
+    #ffcc00 0px 32px,
+    transparent 30%
+  )
+}
+
+.demo-area.region-bl .aug-demo {
+  --hud-bl1: scoop;
+  --hud-bl1-size: 16px;
+  --hud-bl2: scoop;
+  --hud-bl2-size: 16px;
+  --hud-border-bg: radial-gradient(
+    circle at left bottom,
+    #ffcc00 0px 32px,
+    transparent 30%
+  )
+}
+
+.demo-area.region-l .aug-demo {
+  --hud-l1: scoop;
+  --hud-l1-size: 16px;
+  --hud-l2: scoop;
+  --hud-l2-size: 16px;
+  --hud-border-bg: radial-gradient(
+    circle at left center,
+    #ffcc00 0px 32px,
+    transparent 30%
+  )
 }
 
 .what {
