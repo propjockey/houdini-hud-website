@@ -85,9 +85,9 @@ mount(document.documentElement, class {
       const newHash = window.location.hash.replace("#", "") || "--hud-tl1"
       if (this.selectedProperty !== newHash) {
         this.selectedProperty = newHash
-        rebind()
-        scrollToHash()
       }
+      rebind()
+      setTimeout(scrollToHash)
     })
     setTimeout(scrollToHash)
   }
