@@ -6,7 +6,8 @@ const descriptionTemplates = {
   augHeight: "Set the height of the aug equipped to the @region-name (@region) region's @first-second position (@position). If this value is not supplied, the height will be rendered to the value provided in @--hud-@position-size." + noteWarn,
   edgeCenter: "Set the center of the @region-name (@region) region along the @edge-wh of the element. For example, `--hud-@region-center: 50%;` places the center of the entier @region-name region's @edge-wh at 50% of the element's @edge-wh without accounting for adjacent corner region sizes. If you want to shift the region relative to its current center point, use @--hud-@position-offset." + noteWarn,
   edgeOffsetTB: "Shift the entier @region-name (@region) region towards the left/right, away from its center point as determined by @--hud-@position-center. Negative values shift left, positive values shift right." + noteWarn,
-  edgeOffsetRL: "Shift the entier @region-name (@region) region towards the bottom/top, away from its center point as determined by @--hud-@position-center. Negative values shift up, positive values shift down." + noteWarn
+  edgeOffsetRL: "Shift the entier @region-name (@region) region towards the bottom/top, away from its center point as determined by @--hud-@position-center. Negative values shift up, positive values shift down." + noteWarn,
+  insetFallback: "Fallback value for both @--hud-@position-inset-x and @--hud-@position-inset-y"
 }
 
 const syntaxLinks = {
@@ -16,6 +17,62 @@ const syntaxLinks = {
 }
 
 export default [
+  {
+    "group": "Getting Started",
+    "description": "Links, Installation, and Usage.",
+    "properties": [
+      {
+        "name": "Home / Documentation",
+        "syntaxLink": "",
+        "syntax": "",
+        "initialValue": "",
+        "description": "<a href='https://houdini-hud.com/'>houdini-hud.com</a> (WIP)"
+      },
+      {
+        "name": "NPM",
+        "syntaxLink": "",
+        "syntax": "",
+        "initialValue": "",
+        "description": "<a href='https://www.npmjs.com/package/houdini-hud'>package/houdini-hud</a>"
+      },
+      {
+        "name": "GitHub",
+        "syntaxLink": "",
+        "syntax": "",
+        "initialValue": "",
+        "description": "<a href='https://github.com/propjockey/houdini-hud'>propjockey/houdini-hud</a>"
+      },
+      {
+        "name": "Usage",
+        "syntaxLink": "",
+        "syntax": "",
+        "initialValue": "",
+        "description": `
+          The houdini script and additional supporting CSS are both added to the page on import of the index.js file.
+
+          \`npm install houdini-hud\`
+
+          then
+
+          \`import "./node_modules/houdini-hud/index.js"\`
+
+          or use it directly from your favorite CDN:
+
+          \`&lt;script src="https://unpkg.com/houdini-hud@0.0.1/index.js">&lt;/script>\`
+
+          and add it to any element (except on or inside \`a\` tags)
+
+          \`&lt;div data-houdini-hud="both">My augmented element&lt;/div>\`
+
+          finally, take a look at the ~150 CSS properties avaialbe to shape it however you want:
+
+          \`div { --hud-tl1: clip; --hud-tl1-size: 1rem; }\`
+
+          (see all properties below!)
+        `
+      }
+    ]
+  },
   {
     "group": "Equipping Augs (Shape Cut-Outs)",
     "description": "Each of the 16 positions have 5 different augs to choose from.",
@@ -244,112 +301,112 @@ export default [
         "name": "--hud-tl1-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-tl2-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-t1-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-t2-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-tr1-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-tr2-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-r1-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-r2-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-br1-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-br2-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-b1-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-b2-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-bl1-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-bl2-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-l1-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       },
       {
         "name": "--hud-l2-width",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augWidth
       }
     ]
@@ -362,112 +419,112 @@ export default [
         "name": "--hud-tl1-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-tl2-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-t1-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-t2-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-tr1-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-tr2-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-r1-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-r2-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-br1-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-br2-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-b1-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-b2-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-bl1-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-bl2-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-l1-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       },
       {
         "name": "--hud-l2-height",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.augHeight
       }
     ]
@@ -480,7 +537,7 @@ export default [
         "name": "--hud-t-center",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.edgeCenter
       },
       {
@@ -494,7 +551,7 @@ export default [
         "name": "--hud-r-center",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.edgeCenter
       },
       {
@@ -508,7 +565,7 @@ export default [
         "name": "--hud-b-center",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.edgeCenter
       },
       {
@@ -522,7 +579,7 @@ export default [
         "name": "--hud-l-center",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": descriptionTemplates.edgeCenter
       },
       {
@@ -549,14 +606,14 @@ export default [
         "name": "--hud-tl-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Pushes the entire Top-Left region, and the top exit point of the Left region, to the right. When this value is greater than @--hud-bl-inset-x, @--hud-l1-inset-x may appear to increase to compensate for the asymmetry so the right-most edge of the left region stays aligned. ...this is easier to understand through an example than it is to describe."
       },
       {
         "name": "--hud-tl-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Pushes the entier Top-Left region, and the left exit point of the Top region, towards the bottom. When this value is greater than @--hud-tr-inset-y, @--hud-t2-inset-y may appear to increase to compensate for the asymmetry so the bottom-most edge of the top region stays aligned. ...this is easier to understand through an example than it is to describe."
       },
       {
@@ -570,14 +627,14 @@ export default [
         "name": "--hud-tr-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Pushes the entier Top-Right region, and the top entrance point of the Right region, to the left. When this value is greater than @--hud-br-inset-x, @--hud-r2-inset-x may appear to increase to compensate for the asymmetry so the left-most edge of the right region stays aligned. ...this is easier to understand through an example than it is to describe."
       },
       {
         "name": "--hud-tr-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Pushes the entier Top-Right region, and the right exit point of the Top region, towards the bottom. When this value is greater than @--hud-tl-inset-y, @--hud-t1-inset-y may appear to increase to compensate for the asymmetry so the bottom-most edge of the top region stays aligned. ...this is easier to understand through an example than it is to describe."
       },
       {
@@ -591,14 +648,14 @@ export default [
         "name": "--hud-br-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Pushes the entier Bottom-Right region, and the bottom exit point of the Right region, to the left. When this value is greater than @--hud-tr-inset-x, @--hud-r1-inset-x may appear to increase to compensate for the asymmetry so the left-most edge of the right region stays aligned. ...this is easier to understand through an example than it is to describe."
       },
       {
         "name": "--hud-br-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Pushes the entier Bottom-Right region, and the right entry point of the Bottom region, towards the top. When this value is greater than @--hud-bl-inset-y, @--hud-b2-inset-y may appear to increase to compensate for the asymetry so the bottom-most edge of the top region stays aligned. ...this is easier to understand through an example than it is to describe."
       },
       {
@@ -612,14 +669,14 @@ export default [
         "name": "--hud-bl-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Pushes the entier Bottom-Left region, and the bottom entry point of the Left region, to the right. When this value is greater than @--hud-tl-inset-x, @--hud-l2-inset-x may appear to increase to compensate for the asymmetry so the right-most edge of the left region stays aligned. ...this is easier to understand through an example than it is to describe."
       },
       {
         "name": "--hud-bl-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Pushes the entier Bottom-Left region, and the left exit point of the Bottom region, towards the top. When this value is greater than @--hud-br-inset-y, @--hud-b2-inset-y may appear to increase to compensate for the asymetry so the top-most edge of the bottom region stays aligned. ...this is easier to understand through an example than it is to describe."
       }
     ]
@@ -633,20 +690,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-tl1-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Add a horizontal line segment between the left edge of the @region-name (@region) region and the aug equipped to the @first-second position (@position)."
       },
       {
         "name": "--hud-tl1-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Add a vertical line segment after the aug equipped to the @first-second position (@position). This segment insets the @first-second aug a distance from the aug in position @region2, or from the top edge of the @region-name (@region) region if there is nothing in position @region2."
       },
       {
@@ -654,20 +711,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-tl2-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Add a horizontal line segment between the end of the first position (@region1) and the aug equipped to the @first-second position (@position)."
       },
       {
         "name": "--hud-tl2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": "Add a vertical line segment after the aug equipped to the @first-second position (@position), insetting it at the specified distance from the top edge of the @region-name (@region) region."
       },
       {
@@ -675,62 +732,62 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-t1-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
+        "description": "Add a horizontal line segment after the @first-second position (@position) in the @region-name region. @--hud-t2-inset-x will add a horizontal line segment to the same area, after this line segment, so the total distance between the aug in @region1 and the aug in @region2 is the sum of these two values."
       },
       {
         "name": "--hud-t1-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
+        "description": "Add a vertical line segment before the aug equipped to the @first-second position (@position), insetting it at the specified distance from the top edge of the @region-name (@region) region."
       },
       {
         "name": "--hud-t2-inset",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-t2-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
+        "description": "Add a horizontal line segment before the @first-second position (@position) in the @region-name region. @--hud-t1-inset-x will add a horizontal line segment to the same area, before this line segment, so the total distance between the aug in @region1 and the aug in @region2 is the sum of these two values."
       },
       {
         "name": "--hud-t2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
+        "description": "Add a vertical line segment before the aug equipped to the @first-second position (@position), insetting it at the specified distance from the top edge of the @region-name (@region) region."
       },
       {
         "name": "--hud-tr1-inset",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-tr1-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-tr1-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -738,20 +795,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-tr2-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-tr2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -759,41 +816,41 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-r1-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
+        "description": "Add a horizontal line segment before the aug equipped to the @first-second position (@position), insetting it at the specified distance from the right edge of the @region-name (@region) region."
       },
       {
         "name": "--hud-r1-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
-        "description": true
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
+        "description": "Add a vertical line segment before the @first-second position (@position) in the @region-name region. @--hud-r2-inset-y will add a vertical line segment to the same area, after this line segment, so the total distance between the aug in @region1 and the aug in @region2 is the sum of these two values."
       },
       {
         "name": "--hud-r2-inset",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-r2-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-r2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -801,20 +858,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-br1-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-br1-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -822,20 +879,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-br2-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-br2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -843,20 +900,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-b1-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-b1-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -864,20 +921,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-b2-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-b2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -885,20 +942,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-bl1-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-bl1-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -906,20 +963,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-bl2-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-bl2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -927,20 +984,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-l1-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-l1-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
@@ -948,20 +1005,20 @@ export default [
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
         "initialValue": "0px",
-        "description": true
+        "description": descriptionTemplates.insetFallback
       },
       {
         "name": "--hud-l2-inset-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-l2-inset-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       }
     ]
@@ -995,42 +1052,42 @@ export default [
         "name": "--hud-border-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-border-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-border-top",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-border-right",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-border-bottom",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-border-left",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       }
     ]
@@ -1064,42 +1121,42 @@ export default [
         "name": "--hud-inlay-x",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-inlay-y",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-inlay-top",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-inlay-right",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-inlay-bottom",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       },
       {
         "name": "--hud-inlay-left",
         "syntaxLink": syntaxLinks.lp,
         "syntax": "<length-percentage>",
-        "initialValue": "-90000px",
+        "initialValue": "-90000px (ignored/unset <a href='https://en.wikipedia.org/wiki/Sentinel_value'>sentinel</a>)",
         "description": true
       }
     ]

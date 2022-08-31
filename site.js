@@ -32,7 +32,7 @@ mount(document.documentElement, class {
     return group
   })
 
-  selectedProperty = window.location.hash.replace("#", "") || "--hud-tl1"
+  selectedProperty = window.location.hash.replace("#", "") || ""
 
   get selectedGroup () {
     const pname = this.selectedProperty
@@ -101,7 +101,7 @@ mount(document.documentElement, class {
         --concat: ${(...args) => args.join('')};
         --prop-description: ${(template, propName, syntax, initialValue, syntaxLink) => {
           let output = template + ""
-          propName.replace(/.*?-(tl|tr|br|bl|t|r|b|l)([1,2]?)[-$]?.*/, (_, region, position) => {
+          propName.replace(/.*?-(tl|tr|br|bl|t|r|b|l)([1,2]?)[-$]?.*|.*/, (_, region, position) => {
             output = output
               .replace(/@region-name/g, regionNames[region])
               .replace(/@region/g, region)
@@ -110,6 +110,7 @@ mount(document.documentElement, class {
               .replace(/@first-second/g, (position - 1) ? "second" : "first")
               .replace(/@(--[a-z0-9-_]+)/gi, "<a href='#$1'>$1</a>")
               .replace(/`(.*?)`/g, "<code>$1</code>")
+              .replace(/\n/g, "\n<br>")
           })
           
           const escapeMap = {

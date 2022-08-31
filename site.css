@@ -316,6 +316,7 @@ header .consulting .dismiss-consulting-popover {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 100;
   backdrop-filter: blur(0.5rem);
 }
 header .consulting .dismiss-consulting-popover,
@@ -512,6 +513,10 @@ header .card li:nth-child(even) {
   text-shadow: var(--theme-2-ts);
 }
 
+.articles > :first-child .article-anchor {
+  display: none;
+}
+
 .articles {
   margin-bottom: 60vh;
 }
@@ -560,6 +565,18 @@ header .card li:nth-child(even) {
     var(--theme-2) 33% 66%,
     var(--theme-1)
   );
+}
+
+.demo-area.region-undefined .demo::before {
+  content: "Select a property\A to view its demo";
+  font-size: 4vmin;
+  text-align: center;
+  display: block;
+  padding-top: 70px;
+  text-transform: uppercase;
+  color: var(--theme-0);
+  font-weight: bold;
+  white-space: pre;
 }
 
 .group-item {
