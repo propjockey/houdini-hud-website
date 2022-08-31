@@ -19,6 +19,5 @@ export class Store extends Map<any, any> {
     #private;
 }
 export function storePropName(storeName: string): string;
-export function storeDataName(storeName: string): string;
-export function storeDataPropName(storeName: string): string;
+export function storeDataSelector(storeName: string): string;
 export type Root = import('./sheet').Root;

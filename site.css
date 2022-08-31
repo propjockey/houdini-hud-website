@@ -318,6 +318,7 @@ header .consulting .dismiss-consulting-popover {
   bottom: 0;
   z-index: 100;
   backdrop-filter: blur(0.5rem);
+  z-index: 199;
 }
 header .consulting .dismiss-consulting-popover,
 header .consulting .card {
